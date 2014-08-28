@@ -7,7 +7,7 @@ This is a fork of https://github.com/harthur/color-convert.
 
 The main changes are:
 
-- Remove keywords
+- Only supports RGB, HSV and HSL
 - All functions return unrounded values
-- Arguments must passed in as an array
-- Call functions via `colrConvert.hex.rgb([0, 1, 3]);`
+- Arguments must be passed in as an array
+- Call functions like so `convert[from][to]([1, 2, 3]);`
