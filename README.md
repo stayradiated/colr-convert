@@ -13,23 +13,16 @@ The main changes are:
 - Call functions like so `convert[from][to]([1, 2, 3]);`
 - Adds hex/rgb conversion
 
-## Notes
-
-**Hex to RGB**
-
-Hex input must be a string of six characters.
-Can only use characters: `A-F a-f 0-9`.
+**Note:** Recommend you do not use this library directly. Instead use
+https://github.com/stayradiated/colr
 
 ## Benchmarks
-
-```
-hex2rgb x 23,167,289 ops/sec ±0.52% (102 runs sampled)
-rgb2hex x 3,243,528 ops/sec ±0.47% (90 runs sampled)
-rgb2hsv x 11,008,278 ops/sec ±0.54% (100 runs sampled)
-rgb2hsl x 9,183,516 ops/sec ±0.96% (95 runs sampled)
-hsl2rgb x 11,875,269 ops/sec ±1.25% (96 runs sampled)
-hsl2hsv x 23,425,507 ops/sec ±1.59% (90 runs sampled)
-hsv2rgb x 24,200,863 ops/sec ±1.60% (94 runs sampled)
-hsv2hsl x 24,792,217 ops/sec ±1.55% (91 runs sampled)
-Fastest is hsv2hsl,hsv2rgb
-```
+hex2rgb x 18,362,949 ops/sec ±1.24% (98 runs sampled)
+rgb2hex x 3,034,386 ops/sec ±1.49% (95 runs sampled)
+rgb2hsv x 10,506,710 ops/sec ±1.48% (90 runs sampled)
+rgb2hsl x 8,587,422 ops/sec ±1.27% (92 runs sampled)
+hsl2rgb x 11,748,296 ops/sec ±1.26% (96 runs sampled)
+hsl2hsv x 23,938,610 ops/sec ±1.23% (94 runs sampled)
+hsv2rgb x 23,802,459 ops/sec ±1.67% (92 runs sampled)
+hsv2hsl x 25,492,025 ops/sec ±1.66% (89 runs sampled)
+Fastest is hsv2hsl

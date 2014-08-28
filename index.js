@@ -29,9 +29,33 @@ function hexVal (c) {
 }
 
 function hex2rgb (hex) {
-  var r = (hexVal(hex.charCodeAt(0)) << 4) + hexVal(hex.charCodeAt(1));
-  var g = (hexVal(hex.charCodeAt(2)) << 4) + hexVal(hex.charCodeAt(3));
-  var b = (hexVal(hex.charCodeAt(4)) << 4) + hexVal(hex.charCodeAt(5));
+  var i = hex[0] === '#' ? 1 : 0;
+  var len = hex.length;
+
+  if (len < 3) {
+    throw new Error('hex input must be at least three chars long');
+  }
+
+  var r, g, b;
+
+  var h1 = hexVal(hex.charCodeAt(0+i));
+  var h2 = hexVal(hex.charCodeAt(1+i));
+  var h3 = hexVal(hex.charCodeAt(2+i));
+
+  if (len >= 6) {
+    r = (h1 << 4) + h2;
+    g = (h3 << 4) + hexVal(hex.charCodeAt(3+i));
+    b = (hexVal(hex.charCodeAt(4+i)) << 4) + hexVal(hex.charCodeAt(5+i));
+  } else {
+    r = (h1 << 4) + h1;
+    g = (h2 << 4) + h2;
+    b = (h3 << 4) + h3;
+  }
+
+  if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255) {
+    throw new Error('hex input is invalid');
+  }
+
   return [r, g, b];
 }
 
