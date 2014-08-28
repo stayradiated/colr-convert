@@ -7,7 +7,24 @@ describe('colr-convert', function () {
 
   var tests = {
 
+    hex: {
+      rgb: [
+        ['#000000', [0, 0, 0]],
+        ['#01ab48', [1, 171, 72]],
+        ['#aabbcc', [170, 187, 204]],
+        ['#ffffff', [255, 255, 255]],
+        ['#FFFFFF', [255, 255, 255]],
+        ['808080',  [128, 128, 128]],
+      ]
+    },
+
     rgb: {
+      hex: [
+        [[0, 0, 0],         '#000000'],
+        [[12.4, 88.2, 192], '#0c58c0'],
+        [[80,  11, 202],    '#500bca'],
+        [[255, 255, 255],   '#ffffff'],
+      ],
       hsv: [
         [[0, 0, 0],        [0, 0, 0]],
         [[20, 30, 40],     [210, 50, 15.69]],
@@ -64,10 +81,11 @@ describe('colr-convert', function () {
   }
 
   function compare (actual, expected) {
-    assert.deepEqual(
-      actual.map(round2dp),
-      expected.map(round2dp)
-    );
+    if (typeof expected === 'string') {
+      assert.equal(actual, expected);
+    } else {
+      assert.deepEqual(actual.map(round2dp), expected.map(round2dp));
+    }
   }
 
   function test (from, to, colors) {

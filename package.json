@@ -1,6 +1,6 @@
 {
   "name": "colr-convert",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Color conversion functions",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/stayradiated/colr-convert",
   "devDependencies": {
+    "benchmark": "^1.0.0",
     "mocha": "^1.21.4"
   }
 }

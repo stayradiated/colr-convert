@@ -1,9 +1,13 @@
 'use strict';
 
 module.exports = {
+  hex: {
+    rgb: hex2rgb,
+  },
   rgb: {
     hsl: rgb2hsl,
     hsv: rgb2hsv,
+    hex: rgb2hex,
   },
   hsl: {
     rgb: hsl2rgb,
@@ -14,6 +18,34 @@ module.exports = {
     hsl: hsv2hsl,
   },
 };
+
+// convert a charcode to a hex val
+function hexVal (c) {
+  return (
+    c < 58 ? c - 48 : // 0 - 9
+    c < 71 ? c - 55 : // A - F
+    c - 87            // a - f
+  );
+}
+
+function hex2rgb (hex) {
+  var i = hex[0] === '#' ? 1 : 0;
+  var r = (hexVal(hex.charCodeAt(0+i)) << 4) + hexVal(hex.charCodeAt(1+i));
+  var g = (hexVal(hex.charCodeAt(2+i)) << 4) + hexVal(hex.charCodeAt(3+i));
+  var b = (hexVal(hex.charCodeAt(4+i)) << 4) + hexVal(hex.charCodeAt(5+i));
+  return [r, g, b];
+}
+
+
+function rgb2hex (rgb) {
+  return '#' + (
+    '000000' +
+    ((rgb[0] << 16) +
+     (rgb[1] << 8) +
+      rgb[2]
+    ).toString(16)
+  ).slice(-6);
+}
 
 function rgb2hsl (rgb) {
   var r = rgb[0] / 255;
