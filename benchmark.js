@@ -3,7 +3,7 @@
 var Benchmark = require('benchmark');
 var convert = require('./index');
 
-var hex = '#73a9c1';
+var hex = '73a9c1';
 var rgb = [10,160,230];
 var hsl = [202,71,32];
 var hsv = [44,32,78];

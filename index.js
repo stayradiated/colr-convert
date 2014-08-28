@@ -29,10 +29,9 @@ function hexVal (c) {
 }
 
 function hex2rgb (hex) {
-  var i = hex[0] === '#' ? 1 : 0;
-  var r = (hexVal(hex.charCodeAt(0+i)) << 4) + hexVal(hex.charCodeAt(1+i));
-  var g = (hexVal(hex.charCodeAt(2+i)) << 4) + hexVal(hex.charCodeAt(3+i));
-  var b = (hexVal(hex.charCodeAt(4+i)) << 4) + hexVal(hex.charCodeAt(5+i));
+  var r = (hexVal(hex.charCodeAt(0)) << 4) + hexVal(hex.charCodeAt(1));
+  var g = (hexVal(hex.charCodeAt(2)) << 4) + hexVal(hex.charCodeAt(3));
+  var b = (hexVal(hex.charCodeAt(4)) << 4) + hexVal(hex.charCodeAt(5));
   return [r, g, b];
 }
 
