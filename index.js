@@ -32,7 +32,7 @@ function hex2rgb (hex) {
   var i = hex[0] === '#' ? 1 : 0;
   var len = hex.length;
 
-  if (len < 3) {
+  if (len - i < 3) {
     throw new Error('hex input must be at least three chars long');
   }
 
@@ -42,7 +42,7 @@ function hex2rgb (hex) {
   var h2 = hexVal(hex.charCodeAt(1+i));
   var h3 = hexVal(hex.charCodeAt(2+i));
 
-  if (len >= 6) {
+  if (len - i >= 6) {
     r = (h1 << 4) + h2;
     g = (h3 << 4) + hexVal(hex.charCodeAt(3+i));
     b = (hexVal(hex.charCodeAt(4+i)) << 4) + hexVal(hex.charCodeAt(5+i));
@@ -211,6 +211,7 @@ function hsv2rgb(hsv) {
   var h = hsv[0] / 60;
   var s = hsv[1] / 100;
   var v = hsv[2] / 100;
+
   var hi = Math.floor(h) % 6;
 
   var f = h - Math.floor(h);

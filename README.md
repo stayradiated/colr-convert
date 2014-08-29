@@ -17,12 +17,15 @@ The main changes are:
 https://github.com/stayradiated/colr
 
 ## Benchmarks
-hex2rgb x 18,362,949 ops/sec ±1.24% (98 runs sampled)
-rgb2hex x 3,034,386 ops/sec ±1.49% (95 runs sampled)
-rgb2hsv x 10,506,710 ops/sec ±1.48% (90 runs sampled)
-rgb2hsl x 8,587,422 ops/sec ±1.27% (92 runs sampled)
-hsl2rgb x 11,748,296 ops/sec ±1.26% (96 runs sampled)
-hsl2hsv x 23,938,610 ops/sec ±1.23% (94 runs sampled)
-hsv2rgb x 23,802,459 ops/sec ±1.67% (92 runs sampled)
-hsv2hsl x 25,492,025 ops/sec ±1.66% (89 runs sampled)
+
+```
+hex2rgb x 18,875,680 ops/sec ±0.39% (101 runs sampled)
+rgb2hex x 3,257,972 ops/sec ±0.09% (103 runs sampled)
+rgb2hsv x 11,271,055 ops/sec ±0.47% (96 runs sampled)
+rgb2hsl x 9,228,333 ops/sec ±0.27% (100 runs sampled)
+hsl2rgb x 12,524,803 ops/sec ±0.45% (99 runs sampled)
+hsl2hsv x 24,861,301 ops/sec ±0.74% (95 runs sampled)
+hsv2rgb x 26,029,072 ops/sec ±0.41% (97 runs sampled)
+hsv2hsl x 26,645,240 ops/sec ±0.62% (94 runs sampled)
 Fastest is hsv2hsl
+```
