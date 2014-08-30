@@ -18,6 +18,8 @@ The main changes are:
 https://github.com/stayradiated/colr
 
 ## Benchmarks
+
+```
 grayscale2rgb x 38,031,394 ops/sec ±1.58% (93 runs sampled)
 hex2rgb x 17,449,845 ops/sec ±1.33% (94 runs sampled)
 rgb2grayscale x 39,924,086 ops/sec ±1.64% (94 runs sampled)
@@ -29,3 +31,4 @@ hsl2hsv x 23,853,124 ops/sec ±1.39% (92 runs sampled)
 hsv2rgb x 23,312,521 ops/sec ±1.63% (91 runs sampled)
 hsv2hsl x 23,423,192 ops/sec ±1.32% (88 runs sampled)
 Fastest is rgb2grayscale
+```
