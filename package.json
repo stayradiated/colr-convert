@@ -1,6 +1,6 @@
 {
   "name": "colr-convert",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Color conversion functions",
   "main": "index.js",
   "scripts": {

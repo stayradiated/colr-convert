@@ -20,15 +20,15 @@ https://github.com/stayradiated/colr
 ## Benchmarks
 
 ```
-grayscale2rgb x 38,031,394 ops/sec ±1.58% (93 runs sampled)
-hex2rgb x 17,449,845 ops/sec ±1.33% (94 runs sampled)
-rgb2grayscale x 39,924,086 ops/sec ±1.64% (94 runs sampled)
-rgb2hex x 3,941,687 ops/sec ±1.61% (95 runs sampled)
-rgb2hsv x 10,588,478 ops/sec ±1.46% (93 runs sampled)
-rgb2hsl x 8,416,812 ops/sec ±1.31% (94 runs sampled)
-hsl2rgb x 11,965,965 ops/sec ±1.34% (95 runs sampled)
-hsl2hsv x 23,853,124 ops/sec ±1.39% (92 runs sampled)
-hsv2rgb x 23,312,521 ops/sec ±1.63% (91 runs sampled)
-hsv2hsl x 23,423,192 ops/sec ±1.32% (88 runs sampled)
+grayscale2rgb x 41,237,487 ops/sec ±0.47% (99 runs sampled)
+hex2rgb x 18,384,624 ops/sec ±0.24% (100 runs sampled)
+rgb2grayscale x 42,660,769 ops/sec ±0.41% (101 runs sampled)
+rgb2hex x 4,241,119 ops/sec ±0.30% (98 runs sampled)
+rgb2hsv x 11,333,178 ops/sec ±0.35% (100 runs sampled)
+rgb2hsl x 9,364,469 ops/sec ±0.30% (100 runs sampled)
+hsl2rgb x 16,887,605 ops/sec ±0.38% (100 runs sampled)
+hsl2hsv x 24,917,781 ops/sec ±0.66% (97 runs sampled)
+hsv2rgb x 25,247,784 ops/sec ±0.44% (100 runs sampled)
+hsv2hsl x 25,951,561 ops/sec ±0.98% (92 runs sampled)
 Fastest is rgb2grayscale
 ```

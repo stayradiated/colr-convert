@@ -149,45 +149,50 @@ function rgb2hsv(rgb) {
   return [h, s, v];
 }
 
-function hsl2rgb(hsl) {
+function hsl2rgb (hsl) {
   var h = hsl[0] / 360;
   var s = hsl[1] / 100;
   var l = hsl[2] / 100;
-  var t1, t2, t3, rgb, val;
 
-  if (s === 0) {
-    val = l * 255;
-    return [val, val, val];
-  }
+  var r, g, b;
 
-  if (l < 0.5) {
-    t2 = l * (1 + s);
+  if (s === 0) { // monochrome
+    r = g = b = l;
+
   } else {
-    t2 = l + s - l * s;
+    var q = l < 0.5 ? l * (s + 1) : l + s - l * s;
+    var p = 2 * l - q;
+    var t;
+
+    // red
+    t = h + 1/3;
+    if      (t < 0) { t += 1; }
+    else if (t > 1) { t -= 1; }
+    if      (t < 1/6)  { r = p + (q - p) * t * 6; }
+    else if (t < 1/2 ) { r = q; }
+    else if (t < 2/3 ) { r = p + (q - p) * (2/3 - t) * 6; }
+    else               { r = p; }
+
+    // green
+    t = h;
+    if      (t < 0) { t += 1; }
+    else if (t > 1) { t -= 1; }
+    if      (t < 1/6)  { g = p + (q - p) * t * 6; }
+    else if (t < 1/2 ) { g = q; }
+    else if (t < 2/3 ) { g = p + (q - p) * (2/3 - t) * 6; }
+    else               { g = p; }
+
+    // blue
+    t = h - 1/3;
+    if      (t < 0) { t += 1; }
+    else if (t > 1) { t -= 1; }
+    if      (t < 1/6)  { b = p + (q - p) * t * 6; }
+    else if (t < 1/2 ) { b = q; }
+    else if (t < 2/3 ) { b = p + (q - p) * (2/3 - t) * 6; }
+    else               { b = p; }
   }
 
-  t1 = 2 * l - t2;
-
-  rgb = [0, 0, 0];
-  for (var i = 0; i < 3; i += 1) {
-    t3 = h + 1 / 3 * - (i - 1);
-    if (t3 < 0) { t3 += 1; }
-    if (t3 > 1) { t3 -= 1; }
-
-    if (6 * t3 < 1) {
-      val = t1 + (t2 - t1) * 6 * t3;
-    } else if (2 * t3 < 1) {
-      val = t2;
-    } else if (3 * t3 < 2) {
-      val = t1 + (t2 - t1) * (2 / 3 - t3) * 6;
-    } else {
-      val = t1;
-    }
-
-    rgb[i] = val * 255;
-  }
-
-  return rgb;
+  return [r * 255, g * 255, b * 255];
 }
 
 function hsl2hsv(hsl) {
