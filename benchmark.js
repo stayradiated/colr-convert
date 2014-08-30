@@ -7,11 +7,20 @@ var hex = '73a9c1';
 var rgb = [10,160,230];
 var hsl = [202,71,32];
 var hsv = [44,32,78];
+var grayscale = 189;
 
 (new Benchmark.Suite())
 
+.add('grayscale2rgb',function () {
+  convert.grayscale.rgb(hex);
+})
+
 .add('hex2rgb',function () {
   convert.hex.rgb(hex);
+})
+
+.add('rgb2grayscale',function () {
+  convert.rgb.grayscale(rgb);
 })
 
 .add('rgb2hex',function () {

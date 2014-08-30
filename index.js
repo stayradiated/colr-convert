@@ -1,6 +1,9 @@
 'use strict';
 
 module.exports = {
+  grayscale: {
+    rgb: grayscale2rgb
+  },
   hex: {
     rgb: hex2rgb,
   },
@@ -8,6 +11,7 @@ module.exports = {
     hsl: rgb2hsl,
     hsv: rgb2hsv,
     hex: rgb2hex,
+    grayscale: rgb2grayscale
   },
   hsl: {
     rgb: hsl2rgb,
@@ -255,4 +259,12 @@ function hsv2hsl(hsv) {
   sl /= (l <= 1) ? l : 2 - l;
   l /= 2;
   return [h, sl * 100, l * 100];
+}
+
+function grayscale2rgb (value) {
+  return [value, value, value];
+}
+
+function rgb2grayscale (rgb) {
+  return (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000;
 }

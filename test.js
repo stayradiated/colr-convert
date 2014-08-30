@@ -7,6 +7,14 @@ describe('colr-convert', function () {
 
   var tests = {
 
+    grayscale: {
+      rgb: [
+        [0,   [0, 0, 0]],
+        [128, [128, 128, 128]],
+        [255, [255, 255, 255]],
+      ],
+    },
+
     hex: {
       rgb: [
         ['#000000', [0, 0, 0]],
@@ -21,6 +29,12 @@ describe('colr-convert', function () {
     },
 
     rgb: {
+      grayscale: [
+        [[0, 0, 0],       0],
+        [[30, 40, 50],    38.15],
+        [[132, 128, 9],   115.63],
+        [[255, 255, 255], 255],
+      ],
       hex: [
         [[0, 0, 0],         '#000000'],
         [[12.4, 88.2, 192], '#0c58c0'],
@@ -83,7 +97,7 @@ describe('colr-convert', function () {
   }
 
   function compare (actual, expected) {
-    if (typeof expected === 'string') {
+    if (! Array.isArray(expected)) {
       assert.equal(actual, expected);
     } else {
       assert.deepEqual(actual.map(round2dp), expected.map(round2dp));
