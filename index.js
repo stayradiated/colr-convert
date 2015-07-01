@@ -125,7 +125,7 @@ function rgb2hsv(rgb) {
   if (max === 0) {
     s = 0;
   } else {
-    s = (delta / max * 1000) / 10;
+    s = delta / max * 100;
   }
 
   if (max === min) {
@@ -144,7 +144,7 @@ function rgb2hsv(rgb) {
     h += 360;
   }
 
-  v = ((max / 255) * 1000) / 10;
+  v = (max / 255) * 100;
 
   return [h, s, v];
 }
