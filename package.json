@@ -1,6 +1,6 @@
 {
   "name": "colr-convert",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Color conversion functions",
   "main": "index.js",
   "scripts": {
@@ -27,6 +27,23 @@
   "homepage": "https://github.com/stayradiated/colr-convert",
   "devDependencies": {
     "benchmark": "^1.0.0",
-    "mocha": "^1.21.4"
+    "mocha": "^2.2.5"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true,
+      "mocha": true
+    },
+    "plugins": [ "react" ],
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "rules": {
+      "quotes": "single",
+      "comma-dangle": "always-multiline",
+      "no-multi-spaces": 0,
+      "key-spacing": 0
+    }
   }
 }
