@@ -3,6 +3,29 @@
 var assert = require('assert');
 var convert = require('./index');
 
+function round2dp (float) {
+  return Math.round(float * 100) / 100;
+}
+
+function compare (actual, expected) {
+  if (!Array.isArray(expected)) {
+    assert.equal(actual, expected);
+  } else {
+    assert.deepEqual(actual.map(round2dp), expected.map(round2dp));
+  }
+}
+
+function test (from, to, colors) {
+  it('should convert ' + from + ' to ' + to, function () {
+    colors.forEach(function (color) {
+      compare(
+        convert[from][to](color[0]),
+        color[1]
+      );
+    });
+  });
+}
+
 describe('colr-convert', function () {
 
   var tests = {
@@ -25,7 +48,7 @@ describe('colr-convert', function () {
         ['808080',  [128, 128, 128]],
         ['888',     [136, 136, 136]],
         ['FAB',     [255, 170, 187]],
-      ]
+      ],
     },
 
     rgb: {
@@ -46,6 +69,8 @@ describe('colr-convert', function () {
         [[20, 30, 40],     [210, 50, 15.69]],
         [[200, 100, 80],   [10, 60, 78.43]],
         [[255, 255, 255],  [0, 0, 100]],
+        [[128, 70, 143],   [287.67, 51.05, 56.08]],
+        [[129, 70, 143],   [288.49, 51.05, 56.08]],
       ],
       hsl: [
         [[0, 0, 0],        [0, 0, 0]],
@@ -57,10 +82,14 @@ describe('colr-convert', function () {
 
     hsv: {
       rgb: [
-        [[0, 0, 0],        [0, 0, 0]],
-        [[20, 30, 40],     [102, 81.6, 71.4]],
-        [[180, 80, 60],    [30.6, 153, 153]],
-        [[360, 100, 100],  [255, 0, 0]],
+        [[0, 0, 0],              [0, 0, 0]],
+        [[20, 30, 40],           [102, 81.6, 71.4]],
+        [[180, 80, 60],          [30.6, 153, 153]],
+        [[360, 100, 100],        [255, 0, 0]],
+        [[288, 51, 56],          [128.23, 69.97, 142.8]],
+        [[289, 51, 56],          [129.45, 69.97, 142.8]],
+        [[287.67, 51.05, 56.08], [128, 70, 143]],
+        [[288.49, 51.05, 56.08], [129, 70, 143]],
       ],
       hsl: [
         [[0, 0, 0],        [0, 0, 0]],
@@ -90,29 +119,6 @@ describe('colr-convert', function () {
     for (var to in tests[from]) {
       test(from, to, tests[from][to]);
     }
-  }
-
-  function round2dp (float) {
-    return Math.round(float * 100) / 100;
-  }
-
-  function compare (actual, expected) {
-    if (! Array.isArray(expected)) {
-      assert.equal(actual, expected);
-    } else {
-      assert.deepEqual(actual.map(round2dp), expected.map(round2dp));
-    }
-  }
-
-  function test (from, to, colors) {
-    it('should convert '+from+' to '+to, function () {
-      colors.forEach(function (color) {
-        compare(
-          convert[from][to](color[0]),
-          color[1]
-        );
-      });
-    });
   }
 
 });
